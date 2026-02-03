@@ -1,128 +1,304 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Nadine</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffeef2;
-            /* Menggunakan font yang seragam untuk semua teks */
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nadine</title>
 
-        .card {
-            background: white;
-            padding: 3.5rem; /* Padding diperbesar */
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 450px; /* Lebar card diperbesar */
-            max-width: 85%;
-            transition: all 0.5s ease;
-        }
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ffeef2, #ffc8dd);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
 
-        /* Semua teks menggunakan gaya yang sama dengan 'Nadine' */
-        h1 { 
-            color: #d63384; 
-            margin-bottom: 20px; 
-            font-size: 3rem; /* Ukuran teks Nadine diperbesar */
-            font-weight: 700;
-        }
+/* ❤️ Heart Confetti */
+.heart-confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 18px;
+    animation: heartFall linear forwards;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+}
 
-        p { 
-            color: #d63384; 
-            font-size: 1.8rem; /* Ukuran pertanyaan diperbesar */
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
+@keyframes heartFall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg) scale(1.3);
+        opacity: 0;
+    }
+}
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-        }
 
-        button {
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit; /* Ikut font utama */
-        }
+/* 💗 Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
 
-        #yesBtn {
-            background-color: #ff4d6d;
-            color: white;
-        }
+/* 🎊 Confetti */
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 14px;
+    opacity: 0.9;
+    animation: fall linear forwards;
+    z-index: 9999;
+    border-radius: 3px;
+}
 
-        #yesBtn:hover { 
-            transform: scale(1.1); 
-            background-color: #ff758f; 
-        }
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
 
-        #noBtn {
-            background-color: #adb5bd;
-            color: white;
-            position: relative;
-            z-index: 10;
-        }
 
-        .hidden { display: none; }
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(-110vh) scale(1.4);
+        opacity: 0;
+    }
+}
 
-        .gift-icon {
-            font-size: 80px; /* Ikon kado diperbesar */
-            margin: 25px 0;
-        }
+/* 💌 Card */
+.card {
+    background: white;
+    padding: 3.5rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(214, 51, 132, 0.25);
+    text-align: center;
+    width: 450px;
+    max-width: 85%;
+    animation: popIn 0.8s ease;
+    position: relative;
+    z-index: 5;
+}
 
-        #card2 h1 { font-size: 2.5rem; }
-        #card2 p { font-size: 1.5rem; margin-bottom: 10px; }
-    </style>
+.gif-container {
+    margin: 20px 0;
+}
+
+.dance-gif {
+    width: 180px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.35);
+    animation: popIn 0.8s ease;
+}
+
+/* Card animation */
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    color: #d63384;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #d63384;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* 💞 Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+}
+
+#yesBtn:hover {
+    transform: scale(1.15);
+}
+
+#noBtn {
+    background-color: #adb5bd;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 💝 Second Card */
+#card2 h1 {
+    font-size: 2.5rem;
+}
+
+#card2 p {
+    font-size: 1.5rem;
+}
+
+.gift-icon {
+    font-size: 90px;
+    margin: 20px 0;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+</style>
 </head>
+
 <body>
 
-    <div id="card1" class="card">
-        <h1>Nadine,</h1>
-        <p>Will you be my Valentine?</p>
-        <div class="buttons">
-            <button id="yesBtn" onclick="showNextCard()">Yes</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
-        </div>
+<div id="card1" class="card">
+    <h1>Nadine,</h1>
+    <p>Will you be my Valentine?</p>
+    <div class="buttons">
+        <button id="yesBtn" onclick="showNextCard()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
     </div>
+</div>
 
-    <div id="card2" class="card hidden">
-        <h1>Yuhuuu</h1>
-        <p>Best Decision ever</p>
-        <div class="gift-icon">🎁</div>
-        <p>I Love You</p>
-    </div>
+<div id="card2" class="card hidden">
+    <h1>Yuhuuu 💖</h1>
+    <p>Best decision ever</p>
+    <div class="gif-container">
+    <img 
+        src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+        alt="Happy Dance"
+        class="dance-gif"
+    >
+</div>
+    <p>I Love You 💕</p>
+</div>
 
-    <script>
-        function moveButton() {
-            const btn = document.getElementById('noBtn');
-            // Menghitung batas agar tidak keluar layar
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        }
+<audio id="loveSong" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+</audio>
 
-        function showNextCard() {
-            document.getElementById('card1').classList.add('hidden');
-            document.getElementById('card2').classList.remove('hidden');
-            document.body.style.backgroundColor = '#ffc8dd';
-        }
-    </script>
+<script>
+/* 😈 Tombol No kabur */
+function moveButton() {
+    const btn = document.getElementById('noBtn');
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+
+    btn.style.position = 'fixed';
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+}
+
+/* 💘 Show card 2 + love effect */
+function showNextCard() {
+     document.getElementById('card1').classList.add('hidden');
+    document.getElementById('card2').classList.remove('hidden');
+
+    playLoveSong();           // 🎶 lagu
+    createHearts(40);      // 💕 love terbang
+    launchConfetti(120);  // 🎊 confetti jatuh
+}
+
+/* 💕 Floating hearts generator */
+function createHearts(count = 20) {
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+}
+
+function launchConfetti(count = 80) {
+    const colors = ['#ff4d6d', '#ff758f', '#ffc8dd', '#ffffff'];
+
+    for (let i = 0; i < count; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        confetti.style.width = (Math.random() * 6 + 6) + 'px';
+        confetti.style.height = (Math.random() * 10 + 8) + 'px';
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);
+    }
+}
+
+function launchHeartConfetti(count = 120) {
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart-confetti');
+        heart.innerHTML = '❤️';
+
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }
+}
+function playLoveSong() {
+    const song = document.getElementById('loveSong');
+    song.volume = 0.5; // lembut & romantis
+    song.play().catch(() => {
+        console.log('Autoplay blocked, but user already clicked Yes 😉');
+    });
+}
+
+
+/* 💗 Hearts jalan dari awal */
+setInterval(() => createHearts(3), 800);
+</script>
+
 </body>
 </html>
