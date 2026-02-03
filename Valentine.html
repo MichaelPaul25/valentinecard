@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nadine</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffeef2;
+            /* Menggunakan font yang seragam untuk semua teks */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 3.5rem; /* Padding diperbesar */
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 450px; /* Lebar card diperbesar */
+            max-width: 85%;
+            transition: all 0.5s ease;
+        }
+
+        /* Semua teks menggunakan gaya yang sama dengan 'Nadine' */
+        h1 { 
+            color: #d63384; 
+            margin-bottom: 20px; 
+            font-size: 3rem; /* Ukuran teks Nadine diperbesar */
+            font-weight: 700;
+        }
+
+        p { 
+            color: #d63384; 
+            font-size: 1.8rem; /* Ukuran pertanyaan diperbesar */
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit; /* Ikut font utama */
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #yesBtn:hover { 
+            transform: scale(1.1); 
+            background-color: #ff758f; 
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hidden { display: none; }
+
+        .gift-icon {
+            font-size: 80px; /* Ikon kado diperbesar */
+            margin: 25px 0;
+        }
+
+        #card2 h1 { font-size: 2.5rem; }
+        #card2 p { font-size: 1.5rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="card1" class="card">
+        <h1>Nadine,</h1>
+        <p>Will you be my Valentine?</p>
+        <div class="buttons">
+            <button id="yesBtn" onclick="showNextCard()">Yes</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <div id="card2" class="card hidden">
+        <h1>Yuhuuu</h1>
+        <p>Best Decision ever</p>
+        <div class="gift-icon">🎁</div>
+        <p>I Love You</p>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Menghitung batas agar tidak keluar layar
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function showNextCard() {
+            document.getElementById('card1').classList.add('hidden');
+            document.getElementById('card2').classList.remove('hidden');
+            document.body.style.backgroundColor = '#ffc8dd';
+        }
+    </script>
+</body>
+</html>
